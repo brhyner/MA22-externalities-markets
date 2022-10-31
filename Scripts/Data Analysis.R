@@ -92,7 +92,7 @@ wilcox.test(trading_volume$`Possible Trades %`[trading_volume$treatment != 'Full
 
 # wilcoxon test for difference between FullExtNeg and FullExtPos
 wilcox.test(trading_volume$`Possible Trades %`[trading_volume$treatment != 'FullExtNorm'] ~ 
-              trading_volume$treatment[trading_volume$treatment != 'FullExtNorm'])
+              trading_volume$treatment[trading_volume$treatment != 'FullExtNorm']) -> test_object_wilcox
 
 `Control Group` <- c(
   NA, 
@@ -703,3 +703,4 @@ ggsave("Visuals/Aggressiveness Sellers Start of Game.pdf",
 
 ggsave("Visuals/Aggressiveness Sellers Start of Game.png", 
        width = 34.3, height = 22, units = "cm")
+
