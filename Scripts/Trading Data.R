@@ -87,7 +87,7 @@ cer_trading_ratio <- trading %>%
   
   ungroup()
 
-# in some rounds, all bids fell outside the CER
+#öaklsdjf in some rounds, all bids fell outside the CER
 
 # which side is more actively bidding in the CER
 cer_trading <- trading %>%

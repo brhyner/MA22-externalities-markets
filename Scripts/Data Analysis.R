@@ -32,8 +32,9 @@ ggsave("Visuals/Trading Volume.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Trading Volume.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Trading Volume.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # new vis: taking rounds into consideration
 
@@ -79,8 +80,14 @@ ggsave("Visuals/Trading Volume Start of Game.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Trading Volume Start of Game.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Trading Volume Start of Game.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
+
+# make sure that levels are correct
+trading_volume$treatment <- factor(
+  trading_volume$treatment, levels = c('FullExtPos', 'FullExtNeg', 'FullExtNorm')
+)
 
 # wilcoxon test for difference between FullExtNorm and FullExtPos
 wilcox.test(trading_volume$`Possible Trades %`[trading_volume$treatment != 'FullExtNeg'] ~ 
@@ -142,8 +149,9 @@ ggsave("Visuals/Gains of Trade.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Gains of Trade.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Gains of Trade.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # same here: check whether the beginning paints a clearer picture
 
@@ -189,8 +197,9 @@ ggsave("Visuals/Gains of Trade Start of Game.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Gains of Trade Start of Game.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Gains of Trade Start of Game.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # wilcoxon test for difference between FullExtNorm and FullExtPos
 wilcox.test(surplus$`Allocative efficiency`[surplus$treatment != 'FullExtNeg'] ~ 
@@ -285,8 +294,9 @@ ggsave("Visuals/Price Volatility.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Price Volatility.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Price Volatility.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # check whether the beginning of each game is different compared to the rest of the game
 price_volatility_rounds <- price_volatility %>%
@@ -331,8 +341,9 @@ ggsave("Visuals/Price Volatility Start of Game.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Price Volatility Start of Game.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Price Volatility Start of Game.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # wilcoxon test for difference between FullExtNorm and FullExtPos
 wilcox.test(price_volatility$`price_volatility`[price_volatility$treatment != 'FullExtNeg'] ~ 
@@ -406,8 +417,9 @@ ggsave("Visuals/Price levels.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Price levels.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Price levels.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # wilcoxon test for difference between FullExtNorm and FullExtPos
 wilcox.test(price_levels$`price_levels`[price_levels$treatment != 'FullExtNeg'] ~ 
@@ -478,8 +490,9 @@ ggsave("Visuals/Aggressiveness Buyers.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Aggressiveness Buyers.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Aggressiveness Buyers.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # wilcoxon test to get p-values and find out whether differences are statistically significant
 # build three rows to get like covariance matrix where diagonals are NA
@@ -554,8 +567,9 @@ ggsave("Visuals/Aggressiveness sellers.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Aggressiveness sellers.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Aggressiveness sellers.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 # wilcoxon test to get p-values and find out whether differences are statistically significant
 # build three rows to get like covariance matrix where diagonals are NA
@@ -677,8 +691,9 @@ ggsave("Visuals/Aggressiveness Buyers Start of Game.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Aggressiveness Buyers Start of Game.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Aggressiveness Buyers Start of Game.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 
 ## sellers ##
 
@@ -701,6 +716,7 @@ ggsave("Visuals/Aggressiveness Sellers Start of Game.pdf",
        width = 34.3, height = 22, units = "cm",
        device = cairo_pdf)
 
-ggsave("Visuals/Aggressiveness Sellers Start of Game.png", 
-       width = 34.3, height = 22, units = "cm")
+ggsave("Visuals/Aggressiveness Sellers Start of Game.svg", 
+       width = 34.3, height = 22, units = "cm",
+       device = CairoSVG)
 

@@ -1,5 +1,6 @@
 source("Setup/Init.R")
 
+# if the theme does not print the correct font, please uncomment the font_import() command
 # font_import()
 loadfonts(device = "win", quiet = TRUE)
 
