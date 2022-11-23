@@ -1,5 +1,7 @@
 source('Setup/Init.R')
 source('Setup/theme_master.R')
+
+load("Daten/Data Analysis - Image.RData")
 # macro Level ####
 
 ##################

@@ -720,3 +720,5 @@ ggsave("Visuals/Aggressiveness Sellers Start of Game.svg",
        width = 34.3, height = 22, units = "cm",
        device = CairoSVG)
 
+# save image
+save.image("Daten/Data Analysis - Image.RData")
