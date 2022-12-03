@@ -98,6 +98,15 @@ for (i in 1:length(price_levels$price_levels[price_levels$treatment == 'FullExtN
 
 w
 
+
+# W statistic ####
+
+sum(rank(price_levels$price_levels)[price_levels$treatment == 'FullExtNorm'])
+
+wilcox.test(price_levels ~ treatment, data = price_levels, 
+            alternative = 'l', conf.int = T)
+
+
 # when testing an alternative hypothesis, the following code prints a matrix calculation
 # from which one takes the median as the point estimate for the true location shift
 
@@ -126,8 +135,8 @@ gg_price_levels_hist <-
            x = price_levels, 
            color = `Treatment Condition`, 
            fill = `Treatment Condition`
-           )
-         ) +
+         )
+  ) +
   
   geom_histogram(aes(y = ..density..), alpha = .4, position = 'identity',
                  binwidth = .8) +
@@ -140,7 +149,7 @@ gg_price_levels_hist <-
     data = price_levels[price_levels$treatment == 'FullExtNorm',],
     aes(xintercept = median(price_levels), color = `Treatment Condition`),
     linetype = 'dashed'
-    ) + 
+  ) + 
   
   geom_vline(
     data = price_levels[price_levels$treatment == 'FullExtNeg',],

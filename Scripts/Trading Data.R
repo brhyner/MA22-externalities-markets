@@ -384,7 +384,17 @@ bids_per_deal <- merge(bids_per_round, select(trades_per_round,
   
   mutate(
     `Bids per Deal` = round(bids / trades, 2)
-  )
+  ) %>%
+  
+  group_by(treatment, game) %>%
+  
+  summarise(
+    avg_bids = mean(bids),
+    avg_trades = mean(trades),
+    avg_bpd = mean(`Bids per Deal`)
+  ) %>%
+  
+  ungroup()
   
 #####################
 # Aggressiveness ####
